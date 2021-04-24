@@ -5,6 +5,7 @@
 :root {
     --dark: rgb(21, 24, 26);
     --light: rgb(241, 236, 226);
+    --light-20: rgba(241, 236, 226, .2);
     --primary: rgb(0, 195, 183);
     --secondary: rgb(23, 161, 152);
 }
@@ -96,6 +97,17 @@ form button {
 }
 
 /* 
+* Settings
+*/
+
+#settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+/* 
 * Calendar
 */
 
@@ -104,10 +116,44 @@ form button {
     flex-wrap: wrap;
 }
 
+.cell .tooltip {
+    visibility: hidden;
+    background-color: var(--dark);
+    box-shadow: 3px 3px 10px 6px rgba(29, 29, 29, .2);
+    color: var(--light);
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    top: 20px;
+    left: 45%;
+    z-index: 1;
+}
+
+.cell:hover .tooltip {
+    visibility: visible;
+}
+
 .cell {
-    height: 10px;
-    width: 10px;
-    margin: 2px;
+    height: 6px;
+    width: 6px;
+    margin: 1px;
+    background-color: var(--light-20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 200ms ease-out;
+}
+
+.cell:hover {
     background-color: var(--light);
-    opacity: .5;
+}
+
+.hbd {
+    background-color: var(--primary);
+    color: var(--dark);
+}
+
+.now {
+    background-color: coral;
 }
